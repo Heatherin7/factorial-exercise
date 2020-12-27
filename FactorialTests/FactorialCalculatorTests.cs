@@ -1,3 +1,4 @@
+using System;
 using Factorial;
 using NUnit.Framework;
 
@@ -27,6 +28,12 @@ namespace FactorialTests
 		{
 			var calculatedFactorial = _calculator.Factorial(value);
 			Assert.AreEqual(expectedFactorial, calculatedFactorial);
+		}
+		
+		[Test]
+		public void Throws_Exception_For_Negative_Numbers()
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => _calculator.Factorial(-1));
 		}
 	}
 }
